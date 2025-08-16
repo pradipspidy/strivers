@@ -1,4 +1,4 @@
-//Linear search
+//Maximum Consecutive Ones
 // TC O(n)
 // SP WC::O(1)
 import java.util.*;
