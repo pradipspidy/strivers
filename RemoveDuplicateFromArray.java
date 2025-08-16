@@ -1,5 +1,4 @@
-// Online Java Compiler
-// Use this editor to write, compile and run your Java code online
+//time TC Worst/BEST = O(N), SC = O(1)
 import java.util.*;
 class Main {
     public static void main(String[] args) {
@@ -25,3 +24,27 @@ class Main {
         
     }
 }
+
+
+// // Online Java Compiler
+// // Use this editor to write, compile and run your Java code online
+// import java.util.*;
+// class Main {
+//     public static void main(String[] args) {
+//         int arr[] = {0,0,3,3,3,5,6};
+//         int n = arr.length;
+//         int dup = 1;
+//         for(int i=1; i<n; i++){
+//            if(arr[i]!=arr[dup-1]){
+//                arr[dup] = arr[i];
+//                dup++;
+//            }
+//         }
+//         System.out.println("unique item in array "+dup);
+        
+//         for(int j=0; j<n; j++){
+//             System.out.println(arr[j]);
+//         }
+        
+//     }
+// }
