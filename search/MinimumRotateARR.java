@@ -15,28 +15,21 @@
 
 // Explanation:Here, the element 1 is the minimum element in the array.
 class Main {
-    public static int findMin(int[] nums) {
-        int low = 0, high = nums.length - 1;
-
-        while (low < high) {
-            int mid = (low + high) / 2;
-
-            // If mid element is greater than rightmost, min is in right half
-            if (nums[mid] > nums[high]) {
-                low = mid + 1;
-            } else {
-                // Otherwise, min is in left half (including mid)
-                high = mid;
+    public static void main(String[] args) {
+        int[] arr = {3, 4, 5, 1, 2};
+        int n = arr.length;
+        int left =0; 
+        int right = n-1;
+        while(left<right){
+            int mid = (left+right)/2;
+            if(arr[mid] < arr[right]){
+                right = mid;
+            }else{
+                left = mid+1;
             }
         }
-        // low == high -> minimum element
-        return nums[low];
+         System.out.println(left);
     }
-
-    public static void main(String[] args) {
-        int[] nums1 = {4,5,6,7,0,1,2};
-        int[] nums2 = {3,4,5,1,2};
-        System.out.println(findMin(nums1)); // 0
-        System.out.println(findMin(nums2)); // 1
-    }
+    // int  rotation = left-0;
+   
 }
