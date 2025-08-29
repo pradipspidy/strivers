@@ -16,7 +16,7 @@ class Main {
         int target = 11;
         int low = 0; 
         int high = n-1;
-        int res =-1 ;
+        int res =n ;
         while(low <= high){
             int mid = (low + high)/2;
             if(arr[mid]>=target){
