@@ -21,25 +21,22 @@ class Main {
         int target = 8;
         int low = 0; 
         int high = n-1;
-        int res =-1 ;
-        int fl =-1;
-        int ce =-1;
+
         while(low <= high){
             int mid = (low + high)/2;
-            if(arr[mid]==target){
-                 System.out.println(mid+" "+mid);
+            if(arr[mid] == target){
+                System.out.println(arr[mid]+" "+arr[mid]);
                 return;
-            }else if (arr[mid]>target){
+            } else if (arr[mid] > target){
                 high = mid-1;
-            }else if(arr[mid]<target){
+            } else {
                 low = mid+1;
             }
         }
-        if(fl>0 && ce>0){
-            System.out.println(fl+" "+ce);
-        }else{
-            System.out.println(arr[high]+" "+arr[low]);
-        }
-        
+
+        int floor = (high >= 0) ? arr[high] : -1;   // no floor if high < 0
+        int ceil  = (low < n)  ? arr[low]  : -1;   // no ceil if low >= n
+
+        System.out.println(floor+" "+ceil);
     }
 }
