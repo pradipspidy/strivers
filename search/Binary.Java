@@ -6,7 +6,8 @@
 // Output: 4
 
 // Explanation: The target integer 9 exists in nums and its index is 4
-
+//TC = O(log n)
+//SC = O(1)
 class Main {
     public static void main(String[] args) {
         int[] arr = {-1,0,3,5,9,12};
