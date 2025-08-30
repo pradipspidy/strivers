@@ -57,7 +57,7 @@ class Main {
         
     }
     public static int findMin(int[] arr){
-        int mn = 0;
+        int mn = arr[0];
         for(int i=0; i< arr.length; i++){
             mn = Math.min(arr[i],mn);
         }
