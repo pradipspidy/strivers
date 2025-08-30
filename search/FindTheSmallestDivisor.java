@@ -26,6 +26,7 @@ class Main {
         int limit = 8;
         int left = findMin(arr);
         int right = findMax(arr);
+        int res = -1;
         
         while(left <= right){
             int mid = (left+right)/2;
@@ -34,11 +35,12 @@ class Main {
             if(divisor > limit){
                  left = mid+1;
             }else{
+                res = mid;
                 right = mid-1;
             }
             
         }
-        System.out.println(right);
+        System.out.println(res);
     }
     public static int findDivisor(int[] arr, int min){
         int sum = 0;
