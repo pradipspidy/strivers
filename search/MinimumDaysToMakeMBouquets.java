@@ -8,61 +8,70 @@
 // Explanation: On the 12th the first 4 flowers and the last 3 flowers would have already bloomed. So, we can easily make 2 bouquets, one with the first 3 and another with the last 3 flowers.
 
 
-import java.lang.Math;
 class Main {
     public static void main(String[] args) {
         int[] arr = {7, 7, 7, 7, 13, 11, 12, 7};
-        int left = findMin(arr);
         int k = 3;
-        int m=2;
-        int right = findMax(arr);
-        int res = right;
-        if (m*k > arr.length){
+        int m = 2;
+
+        // Impossible case
+        if (m * k > arr.length) {
             System.out.println(-1);
+            return;
         }
-        while(left <= right){
-            int mid = (left+right)/2;
-            int bouquets =  findBloomed(arr, mid,k, m);
-            if(bouquets < m){
-                 left = mid+1;
-            }else{
-                right = mid-1;
+
+        int left = findMin(arr);
+        int right = findMax(arr);
+        int res = -1;
+
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            int bouquets = findBloomed(arr, mid, k);
+
+            if (bouquets < m) {
+                left = mid + 1;
+            } else {
+                res = mid;       // candidate answer
+                right = mid - 1; // try smaller day
             }
-            
         }
-        System.out.println(left);
+
+        System.out.println(res);
     }
-    public static int findBloomed(int[] arr, int days,int k, int m){
+
+    public static int findBloomed(int[] arr, int days, int k) {
         int active = 0;
-        int bl = 0;
-        for(int i=0; i < arr.length; i++){
-            if(arr[i]<=days){
+        int bouquets = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] <= days) {
                 active++;
-            }else{
-                bl += active/k;
-                active =0;
+                if (active == k) {
+                    bouquets++;
+                    active = 0;
+                }
+            } else {
+                active = 0; // reset if flower not bloomed
             }
-            
         }
-         bl += active/k;
-        return bl;
-        
+        return bouquets;
     }
-    public static int findMax(int[] arr){
-        int mx = 0;
-        for(int i=0; i< arr.length; i++){
-            mx = Math.max(arr[i],mx);
+
+    public static int findMax(int[] arr) {
+        int mx = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            mx = Math.max(arr[i], mx);
         }
         return mx;
-        
     }
-    public static int findMin(int[] arr){
+
+    public static int findMin(int[] arr) {
         int mn = arr[0];
-        for(int i=0; i< arr.length; i++){
-            mn = Math.min(arr[i],mn);
+        for (int i = 1; i < arr.length; i++) {
+            mn = Math.min(arr[i], mn);
         }
         return mn;
-        
     }
+}
+
     
 }
